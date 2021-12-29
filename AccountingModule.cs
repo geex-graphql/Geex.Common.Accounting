@@ -13,7 +13,7 @@ namespace Geex.Common.Accounting
     {
         public override void ConfigureServices(ServiceConfigurationContext context)
         {
-            context.Services.AddSingleton<AccountHandler>();
+            context.Services.AddTransient<AccountHandler>();
             base.ConfigureServices(context);
         }
     }
