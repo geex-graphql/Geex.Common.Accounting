@@ -26,9 +26,10 @@ namespace Geex.Common.Accounting.Handlers
     {
         private IMediator _mediator;
 
-        public AccountHandler(IMediator mediator)
+        public AccountHandler(IMediator mediator, LazyFactory<ClaimsPrincipal> claimPrinciple)
         {
             _mediator = mediator;
+            this.ClaimPrinciple = claimPrinciple;
         }
 
         /// <summary>Handles a request</summary>
