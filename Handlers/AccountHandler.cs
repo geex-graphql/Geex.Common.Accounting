@@ -52,7 +52,18 @@ namespace Geex.Common.Accounting.Handlers
         /// <returns>Response from the request</returns>
         public async Task<Unit> Handle(RegisterUserRequest request, CancellationToken cancellationToken)
         {
-            await this._mediator.Send(CreateUserRequest.CreateInstance(request.Username, request.PhoneNumber, request.Email, request.Password), cancellationToken);
+            await this._mediator.Send(new CreateUserRequest
+            {
+                Username = request.Username,
+                IsEnable = true,
+                Email = request.Email,
+                RoleNames = new List<string>(),
+                OrgCodes = new List<string>(),
+                AvatarFileId = null,
+                Claims = new List<UserClaim>(),
+                PhoneNumber = request.PhoneNumber,
+                Password = request.Password
+            }, cancellationToken);
             return Unit.Value;
         }
 
