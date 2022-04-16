@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Geex.Common.Abstraction.Gql.Types;
 using Geex.Common.Accounting.Aggregates.Accounts.Inputs;
-using Geex.Common.Gql.Roots;
 using Geex.Common.Identity.Api.GqlSchemas.Users.Inputs;
 
 using HotChocolate;
@@ -14,7 +13,7 @@ using MediatR;
 
 namespace Geex.Common.Accounting.GqlSchemas
 {
-    public class AccountMutation : MutationTypeExtension<AccountMutation>
+    public class AccountMutation : Mutation<AccountMutation>
     {
         /// <summary>
         /// 更新设置
