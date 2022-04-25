@@ -13,26 +13,29 @@ using MediatR;
 
 namespace Geex.Common.Accounting.GqlSchemas
 {
-    public class AccountMutation : Mutation<AccountMutation>
+    public class AccountMutation : MutationExtension<AccountMutation>
     {
+        private readonly IMediator _mediator;
+
+        public AccountMutation(IMediator mediator)
+        {
+            this._mediator = mediator;
+        }
+
         /// <summary>
         /// 更新设置
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        public async Task<bool> ChangePassword(
-            [Service] IMediator Mediator,
-            ChangePasswordRequest input)
+        public async Task<bool> ChangePassword(ChangePasswordRequest input)
         {
-            await Mediator.Send(input);
+            await _mediator.Send(input);
             return true;
         }
 
-        public async Task<bool> Register(
-            [Service] IMediator mediator,
-            RegisterUserRequest input)
+        public async Task<bool> Register(RegisterUserRequest input)
         {
-            var result = await mediator.Send(input);
+            var result = await _mediator.Send(input);
             return true;
         }
     }
