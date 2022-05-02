@@ -26,7 +26,7 @@ namespace Geex.Common.Accounting.Handlers
     {
         private IMediator _mediator;
 
-        public AccountHandler(IMediator mediator, LazyFactory<ClaimsPrincipal> claimPrinciple)
+        public AccountHandler(IMediator mediator, LazyService<ClaimsPrincipal> claimPrinciple)
         {
             _mediator = mediator;
             this.ClaimPrinciple = claimPrinciple;
@@ -67,7 +67,7 @@ namespace Geex.Common.Accounting.Handlers
             return Unit.Value;
         }
 
-        public LazyFactory<ClaimsPrincipal> ClaimPrinciple { get; }
+        public LazyService<ClaimsPrincipal> ClaimPrinciple { get; }
     }
 
 }
