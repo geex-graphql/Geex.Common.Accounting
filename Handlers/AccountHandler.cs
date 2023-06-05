@@ -5,7 +5,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-
+using Geex.Common.Abstraction.Entities;
 using Geex.Common.Abstraction.Gql.Inputs;
 using Geex.Common.Abstractions;
 using Geex.Common.Accounting.Aggregates.Accounts.Inputs;
@@ -57,7 +57,7 @@ namespace Geex.Common.Accounting.Handlers
                 Username = request.Username,
                 IsEnable = true,
                 Email = request.Email,
-                RoleNames = new List<string>(),
+                RoleIds = new List<string>(),
                 OrgCodes = new List<string>(),
                 AvatarFileId = null,
                 Claims = new List<UserClaim>(),
